@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "scss/index.css",
+	"sources": [
+		"scss/index.scss"
+	],
+	"sourcesContent": [
+		"body {\n  margin: 0;\n  padding: 0;\n  font-family: sans-serif;\n}\n\n.search {\n  padding: 1.5rem;\n  \n  &-input {\n    width: 100%;\n  }\n}\n"
+	],
+	"mappings": ";AAAA,AAAA,IAAI,CAAC;EACH,MAAM,EAAE,CAAE;EACV,OAAO,EAAE,CAAE;EACX,WAAW,EAAE,UAAW;CACzB;;;AAED,AAAA,OAAO,CAAC;EACN,OAAO,EAAE,MAAO;CAKjB;;;AAND,AAAA,aAAO,CAGG;EACN,KAAK,EAAE,IAAK;CACb",
+	"names": []
+}
