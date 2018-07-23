@@ -13,9 +13,9 @@ class Main extends Component {
 
   render() {
     const style = {
-      width: '70%',
+      width: '68%',
       height: '100%',
-      display: 'inline-block'
+      position: 'relative'
     }
     {this.props.interestingPoints.forEach((cafe) => {
     console.log(cafe.name + " " + cafe.lng + " " + cafe.lat );
@@ -23,6 +23,7 @@ class Main extends Component {
     return (
        <Map google={this.props.google}
             zoom={this.props.startingPosition.zoom}
+            className={'map'}
             initialCenter={{
               lat: this.props.startingPosition.lat,
               lng: this.props.startingPosition.lng

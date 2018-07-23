@@ -4,8 +4,9 @@ body {
   font-family: sans-serif;
 }
 
-.map-container {
-  
+.app {
+  display: flex;
+  flex-direction: row;
 }
 
 .filter {

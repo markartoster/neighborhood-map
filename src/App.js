@@ -20,7 +20,7 @@ class App extends React.PureComponent {
 
   render() {
     return (
-      <div>
+      <div className="app">
         <Filter
           interestingPoints={this.state.interestingPoints}
           startingPosition={this.state.startingPosition}
@@ -34,7 +34,6 @@ class App extends React.PureComponent {
           interestingPoints={this.state.interestingPoints}
           startingPosition={this.state.startingPosition}
         />
-
       </div>
     );
   }
