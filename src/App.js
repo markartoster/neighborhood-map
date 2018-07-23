@@ -21,7 +21,10 @@ class App extends React.PureComponent {
   render() {
     return (
       <div>
-        <Filter />
+        <Filter
+          interestingPoints={this.state.interestingPoints}
+          startingPosition={this.state.startingPosition}
+        />
         <Main
           isMarkerShown = {this.state.isMarkerShown}
           googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJTF1H_9xKdjSbmBkFz96KPCRRPaJfgQ0&v=3.exp&libraries=geometry,drawing,places"

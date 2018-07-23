@@ -4,10 +4,32 @@ body {
   font-family: sans-serif;
 }
 
-.search {
-  padding: 1.5rem;
+.map-container {
   
+}
+
+.filter {
+  width: 30%;
+  padding: .6rem 1rem 1rem;
+
   &-input {
     width: 100%;
+    padding: .5rem .2rem;
+    border: none;
+    box-shadow: 0 0.1rem #d3d3d3;
+    -webkit-appearance: none;
+    outline: none;
+  }
+
+  &-list {
+    padding-left:0;
+    list-style-position:inside;
+    list-style: none;
+    &-item {
+      padding: .6rem 0.5rem;
+      margin: .6rem;
+      border: .1rem solid #d3d3d3;
+      box-shadow: 0 .1rem #ddd;
+    }
   }
 }
