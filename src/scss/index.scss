@@ -5,12 +5,17 @@ body {
 }
 
 .app {
-  display: flex;
-  flex-direction: row;
+  @media screen and (min-width: 767px) {
+    display: flex;
+    flex-direction: row;
+  }
 }
 
 .filter {
-  width: 30%;
+  @media screen and (min-width: 767px) {
+    width: 30%;
+  }
+
   padding: .6rem 1rem 1rem;
 
   &-input {

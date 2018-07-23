@@ -13,7 +13,7 @@ class Main extends Component {
 
   render() {
     const style = {
-      width: '68%',
+      width: '100%',
       height: '100%',
       position: 'relative'
     }

@@ -5,19 +5,27 @@ body {
   font-family: sans-serif;
 }
 
-/* line 7, /Users/karolrosinski/Documents/GOOGLE ND FE/neighborhood-map/src/scss/index.scss */
-.app {
-  display: flex;
-  flex-direction: row;
+@media screen and (min-width: 767px) {
+  /* line 7, /Users/karolrosinski/Documents/GOOGLE ND FE/neighborhood-map/src/scss/index.scss */
+  .app {
+    display: flex;
+    flex-direction: row;
+  }
 }
 
-/* line 12, /Users/karolrosinski/Documents/GOOGLE ND FE/neighborhood-map/src/scss/index.scss */
+/* line 14, /Users/karolrosinski/Documents/GOOGLE ND FE/neighborhood-map/src/scss/index.scss */
 .filter {
-  width: 30%;
   padding: .6rem 1rem 1rem;
 }
 
-/* line 16, /Users/karolrosinski/Documents/GOOGLE ND FE/neighborhood-map/src/scss/index.scss */
+@media screen and (min-width: 767px) {
+  /* line 14, /Users/karolrosinski/Documents/GOOGLE ND FE/neighborhood-map/src/scss/index.scss */
+  .filter {
+    width: 30%;
+  }
+}
+
+/* line 21, /Users/karolrosinski/Documents/GOOGLE ND FE/neighborhood-map/src/scss/index.scss */
 .filter-input {
   width: 100%;
   padding: .5rem .2rem;
@@ -27,14 +35,14 @@ body {
   outline: none;
 }
 
-/* line 25, /Users/karolrosinski/Documents/GOOGLE ND FE/neighborhood-map/src/scss/index.scss */
+/* line 30, /Users/karolrosinski/Documents/GOOGLE ND FE/neighborhood-map/src/scss/index.scss */
 .filter-list {
   padding-left: 0;
   list-style-position: inside;
   list-style: none;
 }
 
-/* line 29, /Users/karolrosinski/Documents/GOOGLE ND FE/neighborhood-map/src/scss/index.scss */
+/* line 34, /Users/karolrosinski/Documents/GOOGLE ND FE/neighborhood-map/src/scss/index.scss */
 .filter-list-item {
   padding: .6rem 0.5rem;
   margin: .6rem;
