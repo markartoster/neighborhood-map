@@ -50,6 +50,9 @@ class App extends React.PureComponent {
           mapElement={<div style={{ height: `100%` }} />}
           interestingPoints={this.state.interestingPoints}
           startingPosition={this.state.startingPosition}
+          updateQuery={this.updateQuery}
+          query={this.state.query}
+          updateListContent={this.updateListContent}
         />
       </div>
     );

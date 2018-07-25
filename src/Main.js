@@ -17,9 +17,15 @@ class Main extends Component {
       height: '100%',
       position: 'relative'
     }
-    {this.props.interestingPoints.forEach((cafe) => {
-    console.log(cafe.name + " " + cafe.lng + " " + cafe.lat );
-    })}
+
+    let filterResults;
+    let filteredInterestingPoints
+    if (this.props.query !== '') {
+      filteredInterestingPoints = this.props.updateListContent(this.props.query, this.props.interestingPoints)
+    } else {
+      filteredInterestingPoints = this.props.interestingPoints;
+    }
+
     return (
        <Map google={this.props.google}
             zoom={this.props.startingPosition.zoom}
@@ -30,7 +36,7 @@ class Main extends Component {
             }}
             style={style}
             >
-         {this.props.interestingPoints.map((cafe) => (
+         {filteredInterestingPoints.map((cafe) => (
            <Marker onClick={this.onMarkerClick}
                    key={cafe.name}
                    name={cafe.name}

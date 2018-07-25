@@ -4,13 +4,13 @@ class Filter extends Component {
 
   render() {
     let filterResults;
-    let filteredInterestingPoints
+    let filteredInterestingPoints;
     if (this.props.query !== '') {
       filteredInterestingPoints = this.props.updateListContent(this.props.query, this.props.interestingPoints)
     } else {
       filteredInterestingPoints = this.props.interestingPoints;
     }
-    
+
     if (filteredInterestingPoints instanceof Array) {
       filterResults = (
         <ol className="filter-list">
