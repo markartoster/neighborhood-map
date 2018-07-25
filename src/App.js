@@ -7,6 +7,7 @@ class App extends React.PureComponent {
 
   state = {
     isMarkerShown: true,
+    query: '',
     interestingPoints: [
       {name: "Cafe Strych", lat: 54.523280, lng: 18.543844},
       {name: "Coffee Time", lat: 54.521288, lng: 18.532659},
@@ -18,12 +19,28 @@ class App extends React.PureComponent {
     startingPosition: { lat: 54.5193926,lng: 18.5353235, zoom: 14.95}
   }
 
+  updateQuery = (query) => {
+    this.setState({ query: query })
+  }
+
+  updateListContent = (query, interestingPoints) => {
+    let filteredInterestingPoints = interestingPoints.filter((point) => {
+      if(point.name.toLowerCase()[0] === query.toLowerCase()[0])
+        return point
+    })
+
+    return filteredInterestingPoints;
+  }
+
   render() {
     return (
       <div className="app">
         <Filter
           interestingPoints={this.state.interestingPoints}
           startingPosition={this.state.startingPosition}
+          updateQuery={this.updateQuery}
+          query={this.state.query}
+          updateListContent={this.updateListContent}
         />
         <Main
           isMarkerShown = {this.state.isMarkerShown}
