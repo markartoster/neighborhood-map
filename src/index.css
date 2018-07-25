@@ -50,4 +50,11 @@ body {
   box-shadow: 0 .1rem #ddd;
 }
 
+@media screen and (min-width: 767px) {
+  /* line 43, /Users/karolrosinski/Documents/GOOGLE ND FE/neighborhood-map/src/scss/index.scss */
+  .map {
+    width: 68% !important;
+  }
+}
+
 /*# sourceMappingURL=../index.map */
