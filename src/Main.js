@@ -28,6 +28,7 @@ class Main extends Component {
 
     return (
        <Map google={this.props.google}
+            onClick={this.props.onMapClicked}
             zoom={this.props.startingPosition.zoom}
             className={'map'}
             initialCenter={{
@@ -47,8 +48,8 @@ class Main extends Component {
          <InfoWindow
            marker={this.props.activeMarker}
            visible={this.props.showingInfoWindow}>
-             <div>
-               <h1>{this.props.selectedPlace.name}</h1>
+             <div className="info-window">
+               <div className="info-window--text">{this.props.selectedPlace.name}</div>
              </div>
          </InfoWindow>
        </Map>

@@ -45,3 +45,10 @@ body {
     width: 68% !important;
   }
 }
+
+.info-window {
+  border-bottom: .01rem solid #d0d0d0;
+  &--text {
+    font-family: 'Sunflower', sans-serif;
+  }
+}

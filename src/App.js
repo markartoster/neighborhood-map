@@ -27,15 +27,21 @@ class App extends React.PureComponent {
   }
 
   onMarkerClick = (place, marker, e) => {
-    console.log(place);
-    console.log(marker);
-    console.log(e);
     this.setState({
       selectedPlace: place,
       activeMarker: marker,
       showingInfoWindow: true
     })
   }
+
+  onMapClicked = (props) => {
+    if (this.state.showingInfoWindow) {
+      this.setState({
+        showingInfoWindow: false,
+        activeMarker: null
+      })
+    }
+  };
 
   updateQuery = (query) => {
     this.setState({ query: query })
@@ -72,6 +78,7 @@ class App extends React.PureComponent {
           updateQuery={this.updateQuery}
           query={this.state.query}
           updateListContent={this.updateListContent}
+          onMapClicked={this.onMapClicked}
           onMarkerClick={this.onMarkerClick}
           selectedPlace={this.state.selectedPlace}
           activeMarker={this.state.activeMarker}
