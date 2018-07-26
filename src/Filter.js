@@ -15,7 +15,7 @@ class Filter extends Component {
       filterResults = (
         <ol className="filter-list">
           {filteredInterestingPoints.map((point) => (
-            <li className="filter-list-item" key={point.name}>
+            <li className="filter-list-item" key={point.name} onClick={this.props.clickItem}>
               <div>{point.name}</div>
             </li>
           ))}

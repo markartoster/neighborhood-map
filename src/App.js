@@ -16,7 +16,25 @@ class App extends React.PureComponent {
       {name: "Cyganeria", lat: 54.519417, lng: 18.535728},
       {name: "Lavenda Cafe & Galeria", lat: 54.521259, lng: 18.540606}
     ],
-    startingPosition: { lat: 54.5193926,lng: 18.5353235, zoom: 14.95}
+    startingPosition: { lat: 54.5193926,lng: 18.5353235, zoom: 14.95},
+    showingInfoWindow: false,
+    activeMarker: {},
+    selectedPlace: {}
+  }
+
+  clickItem = (event) => {
+    console.log("test");
+  }
+
+  onMarkerClick = (place, marker, e) => {
+    console.log(place);
+    console.log(marker);
+    console.log(e);
+    this.setState({
+      selectedPlace: place,
+      activeMarker: marker,
+      showingInfoWindow: true
+    })
   }
 
   updateQuery = (query) => {
@@ -41,6 +59,7 @@ class App extends React.PureComponent {
           updateQuery={this.updateQuery}
           query={this.state.query}
           updateListContent={this.updateListContent}
+          clickItem={this.clickItem}
         />
         <Main
           isMarkerShown = {this.state.isMarkerShown}
@@ -53,6 +72,10 @@ class App extends React.PureComponent {
           updateQuery={this.updateQuery}
           query={this.state.query}
           updateListContent={this.updateListContent}
+          onMarkerClick={this.onMarkerClick}
+          selectedPlace={this.state.selectedPlace}
+          activeMarker={this.state.activeMarker}
+          showingInfoWindow={this.state.showingInfoWindow}
         />
       </div>
     );

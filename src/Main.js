@@ -37,13 +37,20 @@ class Main extends Component {
             style={style}
             >
          {filteredInterestingPoints.map((cafe) => (
-           <Marker onClick={this.onMarkerClick}
+           <Marker onClick={this.props.onMarkerClick}
                    key={cafe.name}
                    name={cafe.name}
                    title={cafe.name}
                    position={{lat: cafe.lat, lng: cafe.lng}}
                 />
          ))}
+         <InfoWindow
+           marker={this.props.activeMarker}
+           visible={this.props.showingInfoWindow}>
+             <div>
+               <h1>{this.props.selectedPlace.name}</h1>
+             </div>
+         </InfoWindow>
        </Map>
    );
  }
