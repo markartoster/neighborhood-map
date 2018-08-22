@@ -1,6 +1,9 @@
 const initialState = {
   cafes: [],
-  query: ''
+  query: '',
+  showingInfoWindow: false,
+  activeMarker: {},
+  selectedPlace: {}
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -9,8 +12,14 @@ const rootReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         query: action.query
     })
+    case "ON_MARKER_CLICK":
+      return Object.assign({}, state, {
+        showingInfoWindow: action.showingInfoWindow,
+        activeMarker: action.activeMarker,
+        selectedPlace: action.selectedPlace
+    })
     default:
-
+      return state
   }
 }
 

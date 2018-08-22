@@ -43,10 +43,6 @@ class App extends React.PureComponent {
     }
   };
 
-  updateQuery = (query) => {
-    this.setState({ query: query })
-  }
-
   updateListContent = (query, interestingPoints) => {
     let filteredInterestingPoints = interestingPoints.filter((point) => {
       if(point.name.toLowerCase()[0] === query.toLowerCase()[0])
@@ -79,10 +75,6 @@ class App extends React.PureComponent {
           query={this.state.query}
           updateListContent={this.updateListContent}
           onMapClicked={this.onMapClicked}
-          onMarkerClick={this.onMarkerClick}
-          selectedPlace={this.state.selectedPlace}
-          activeMarker={this.state.activeMarker}
-          showingInfoWindow={this.state.showingInfoWindow}
         />
       </div>
     );

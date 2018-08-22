@@ -4,3 +4,12 @@ export function updateQuery(query) {
     query
   }
 }
+
+export function onMarkerClick(place, marker, e) {
+  return {
+    type: "ON_MARKER_CLICK",
+    activeMarker: marker,
+    showingInfoWindow: true,
+    selectedPlace: {name: place.name, title: marker.title}
+  }
+}

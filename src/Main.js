@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+import { connect } from 'react-redux';
+import { onMarkerClick } from './actions.js'
 
 class Main extends Component {
-
-  props = {
-
-  }
 
   componentDidMount() {
 
@@ -57,6 +55,20 @@ class Main extends Component {
  }
 }
 
-export default GoogleApiWrapper({
+const mapStateToProps = state => {
+  return {
+    showingInfoWindow: state.showingInfoWindow,
+    activeMarker: state.activeMarker,
+    selectedPlace: state.selectedPlace
+    }
+  }
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onMarkerClick: (place, marker, e) => dispatch(onMarkerClick(place, marker, e)),
+  }
+}
+const MyWrapper = GoogleApiWrapper({
  apiKey: ("AIzaSyCJTF1H_9xKdjSbmBkFz96KPCRRPaJfgQ0")
 })(Main)
+export default connect(mapStateToProps, mapDispatchToProps)(MyWrapper)
