@@ -8,6 +8,10 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
+    case "INIT_CAFES":
+      return Object.assign({}, state, {
+        cafes: action.cafes
+    })
     case "UPDATE_QUERY":
       return Object.assign({}, state, {
         query: action.query

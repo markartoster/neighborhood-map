@@ -1,3 +1,11 @@
+export function initCafes(cafes) {
+  console.log(cafes);
+  return {
+    type: "INIT_CAFES",
+    cafes
+  }
+}
+
 export function updateQuery(query) {
   return {
     type: "UPDATE_QUERY",

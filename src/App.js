@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import Main from './Main.js'
 import Filter from './Filter.js'
+import { connect } from 'react-redux';
 import './App.css';
+import { initCafes } from './actions.js'
+import $ from "jquery";
 
 class App extends React.PureComponent {
 
@@ -20,6 +23,36 @@ class App extends React.PureComponent {
     showingInfoWindow: false,
     activeMarker: {},
     selectedPlace: {}
+  }
+
+  componentDidMount() {
+    this.initCafes();
+  }
+
+  initCafes = () => {
+    let clientID = 'REY4XZ5WQ1CNVSH52G2UJ3DYUVOW5A5PVHADYUGGIV5TLDWE'
+    let clientSecret = 'LMR253UHYAPDUFJ0NV0TRFRHEQ2AEZG4A30BPCCQAWYIQDND'
+    const appInstance = this
+
+    let url = `https://api.foursquare.com/v2/venues/explore?client_id=${clientID}&client_secret=${clientSecret}&v=20180323&near=Gdynia&limit=10&query=coffee`
+    $.ajax({
+      url: url,
+      dataType: 'json',
+      xhrFields: {
+        withCredentials: false
+      },
+      success: function(data) {
+        const cafes = data.response.groups[0].items.map((cafe, index) => {
+          console.log({cafeName: cafe.venue.name, lat: cafe.venue.location.lat, lng: cafe.venue.location.lng, id: cafe.venue.id, categories: cafe.venue.categories[0].name, address: cafe.venue.location.address});
+          return {cafeName: cafe.venue.name, lat: cafe.venue.location.lat, lng: cafe.venue.location.lng, id: cafe.venue.id, categories: cafe.venue.categories[0].name, address: cafe.venue.location.address}
+        })
+
+        appInstance.props.initCafes(cafes);
+      },
+      error: () => {
+        //some error handling later
+      }
+    })
   }
 
   clickItem = (event) => {
@@ -81,4 +114,15 @@ class App extends React.PureComponent {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    initCafes: cafes => dispatch(initCafes(cafes)),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
