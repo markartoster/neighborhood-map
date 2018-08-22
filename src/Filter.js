@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import {updateQuery} from './actions.js'
 
 class Filter extends Component {
 
@@ -38,4 +40,15 @@ class Filter extends Component {
   }
 }
 
-export default Filter;
+const mapStateToProps = state => {
+  return {
+
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    updateQuery: query => dispatch(updateQuery(query)),
+  }
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Filter);
