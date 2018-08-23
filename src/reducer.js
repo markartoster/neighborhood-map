@@ -40,7 +40,7 @@ const rootReducer = (state = initialState, action) => {
         return Object.assign({}, state, {
           FsError: action.FsError
      })
-     case "ON_FS_ERROR":
+     case "ON_GM_ERROR":
         return Object.assign({}, state, {
           GmError: action.GmError
      })
