@@ -1,5 +1,7 @@
 const initialState = {
   cafes: [],
+  cafesRaw: [], //just names
+  cafesFiltered: [], //entire objects
   query: '',
   showingInfoWindow: false,
   activeMarker: {},
@@ -22,6 +24,11 @@ const rootReducer = (state = initialState, action) => {
         activeMarker: action.activeMarker,
         selectedPlace: action.selectedPlace
     })
+    case "FILTER_CAFES":
+      return Object.assign({}, state, {
+        cafesFiltered: action.cafesFiltered,
+        cafesRaw: action.cafesRaw
+   })
     default:
       return state
   }

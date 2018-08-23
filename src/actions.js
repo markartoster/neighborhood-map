@@ -21,3 +21,11 @@ export function onMarkerClick(place, marker, e) {
     selectedPlace: {name: place.name, title: marker.title}
   }
 }
+
+export function filterCafes(cafesFiltered, cafesRaw) {
+  return {
+    type: "FILTER_CAFES",
+    cafesFiltered,
+    cafesRaw
+  }
+}
