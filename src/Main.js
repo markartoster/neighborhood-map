@@ -16,14 +16,6 @@ class Main extends Component {
       position: 'relative'
     }
 
-    let filterResults;
-    let filteredInterestingPoints
-    if (this.props.query !== '') {
-      filteredInterestingPoints = this.props.updateListContent(this.props.query, this.props.interestingPoints)
-    } else {
-      filteredInterestingPoints = this.props.interestingPoints;
-    }
-
     return (
        <Map google={this.props.google}
             onClick={this.props.onMapClicked}
