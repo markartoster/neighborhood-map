@@ -37,7 +37,16 @@ class App extends React.PureComponent {
       cafesFiltered = (
         <ol className="filter-list">
           {cafesFiltered.map((cafe) => (
-            <li key={cafe.name} lat={cafe.lat} lng={cafe.lng} aria-label={cafe.name} className="filter-list-item" tabIndex={0} role="button" aria-pressed="false">
+            <li key={cafe.name} lat={cafe.lat} lng={cafe.lng} aria-label={cafe.name} className="filter-list-item" tabIndex={0} role="button" aria-pressed="false"
+              onClick={(event) => {
+                this.props.markerRefs.forEach((marker) => {
+                  if(marker){
+                    if(cafe.name === marker.props.title) {
+                      marker.props.onClick({name: marker.props.name}, marker.marker)
+                    }
+                  }
+                })
+              }}>
               {cafe.name}
             </li>
           ))}
@@ -138,7 +147,8 @@ const mapStateToProps = state => {
   return {
     cafes: state.cafes,
     query: state.query,
-    cafesFiltered: state.cafesFiltered
+    cafesFiltered: state.cafesFiltered,
+    markerRefs: state.markerRefs
   }
 }
 

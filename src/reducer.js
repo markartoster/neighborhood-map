@@ -3,9 +3,10 @@ const initialState = {
   cafesRaw: [], //just objects
   cafesFiltered: [], //jsx elements
   query: '',
-  showingInfoWindow: false,
-  activeMarker: {},
-  selectedPlace: {}
+  showingInfoWindow: false, //Infowindow
+  activeMarker: {}, //Infowindow
+  selectedPlace: {}, //Infowindow
+  markerRefs: [] //all refs to markers
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -28,6 +29,10 @@ const rootReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         cafesFiltered: action.cafesFiltered,
         cafesRaw: action.cafesRaw
+   })
+   case "ADD_MARKERREFS":
+      return Object.assign({}, state, {
+        markerRefs: action.markerRefs
    })
     default:
       return state

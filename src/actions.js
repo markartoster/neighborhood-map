@@ -29,3 +29,11 @@ export function filterCafes(cafesFiltered, cafesRaw) {
     cafesRaw
   }
 }
+
+export function addMarkerRefs(markerRefs) {
+  console.log(markerRefs);
+  return {
+    type: "ADD_MARKERREFS",
+    markerRefs
+  }
+}

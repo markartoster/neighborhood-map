@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import { connect } from 'react-redux';
-import { onMarkerClick } from './actions.js'
+import { onMarkerClick, addMarkerRefs } from './actions.js'
 
 class Main extends Component {
 
   componentDidMount() {
+    this.props.addMarkerRefs(this.markerRefs)
+  }
 
+  constructor(props) {
+    super(props);
+    this.markerRefs = [];
   }
 
   render() {
@@ -27,11 +32,12 @@ class Main extends Component {
             }}
             style={style}
             >
-         {this.props.cafesRaw.map((cafe) => (
+         {this.props.cafesRaw.map((cafe, index) => (
            <Marker onClick={this.props.onMarkerClick}
                    key={cafe.name}
                    name={cafe.name}
                    title={cafe.name}
+                   ref={(ref) => this.markerRefs[index] = ref}
                    position={{lat: cafe.lat, lng: cafe.lng}}
                 />
          ))}
@@ -59,6 +65,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onMarkerClick: (place, marker, e) => dispatch(onMarkerClick(place, marker, e)),
+    addMarkerRefs: markerRefs => dispatch(addMarkerRefs(markerRefs))
   }
 }
 const MyWrapper = GoogleApiWrapper({
