@@ -35,7 +35,7 @@ class Main extends Component {
             }}
             style={style}
             >
-         {filteredInterestingPoints.map((cafe) => (
+         {this.props.cafesRaw.map((cafe) => (
            <Marker onClick={this.props.onMarkerClick}
                    key={cafe.name}
                    name={cafe.name}
@@ -59,7 +59,8 @@ const mapStateToProps = state => {
   return {
     showingInfoWindow: state.showingInfoWindow,
     activeMarker: state.activeMarker,
-    selectedPlace: state.selectedPlace
+    selectedPlace: state.selectedPlace,
+    cafesRaw: state.cafesRaw
     }
   }
 

@@ -1,7 +1,7 @@
 const initialState = {
-  cafes: [],
-  cafesRaw: [], //just names
-  cafesFiltered: [], //entire objects
+  cafes: [], //all cafes from request
+  cafesRaw: [], //just objects
+  cafesFiltered: [], //jsx elements
   query: '',
   showingInfoWindow: false,
   activeMarker: {},
