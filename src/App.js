@@ -125,6 +125,8 @@ class App extends React.PureComponent {
           query={this.state.query}
           updateListContent={this.updateListContent}
           clickItem={this.clickItem}
+          localCafesRaw={this.localCafesRaw}
+          localCafesFiltered={this.localCafesFiltered}
         />
         <Main
           isMarkerShown = {this.state.isMarkerShown}
