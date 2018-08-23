@@ -82,7 +82,7 @@ class App extends React.PureComponent {
       },
       success: function(data) {
         const cafes = data.response.groups[0].items.map((cafe, index) => {
-          return {name: cafe.venue.name, lat: cafe.venue.location.lat, lng: cafe.venue.location.lng, id: cafe.venue.id, categories: cafe.venue.categories[0].name, address: cafe.venue.location.address}
+          return {name: cafe.venue.name, lat: cafe.venue.location.lat, lng: cafe.venue.location.lng, id: cafe.venue.id, category: cafe.venue.categories[0].name, address: cafe.venue.location.address}
         })
 
         appInstance.props.initCafes(cafes);

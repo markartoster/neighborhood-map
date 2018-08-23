@@ -13,12 +13,12 @@ export function updateQuery(query) {
   }
 }
 
-export function onMarkerClick(place, marker, e) {
+export function onMarkerClick(cafe, marker, e) {
   return {
     type: "ON_MARKER_CLICK",
     activeMarker: marker,
     showingInfoWindow: true,
-    selectedPlace: {name: place.name, title: marker.title}
+    selectedPlace: {name: cafe.name, address: marker.address, category: marker.category}
   }
 }
 

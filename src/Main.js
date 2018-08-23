@@ -37,6 +37,8 @@ class Main extends Component {
                    key={cafe.name}
                    name={cafe.name}
                    title={cafe.name}
+                   address={cafe.address}
+                   category={cafe.category}
                    ref={(ref) => this.markerRefs[index] = ref}
                    position={{lat: cafe.lat, lng: cafe.lng}}
                 />
@@ -46,6 +48,8 @@ class Main extends Component {
            visible={this.props.showingInfoWindow}>
              <div className="info-window">
                <div className="info-window--text">{this.props.selectedPlace.name}</div>
+               <div className="info-window--text--extra">{`Address: ${this.props.selectedPlace.address}`}</div>
+               <div className="info-window--text--extra">{`Category: ${this.props.selectedPlace.category}`}</div>
              </div>
          </InfoWindow>
        </Map>
@@ -64,7 +68,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onMarkerClick: (place, marker, e) => dispatch(onMarkerClick(place, marker, e)),
+    onMarkerClick: (cafe, marker, e) => dispatch(onMarkerClick(cafe, marker, e)),
     addMarkerRefs: markerRefs => dispatch(addMarkerRefs(markerRefs))
   }
 }
