@@ -1,4 +1,5 @@
 const initialState = {
+  startingPosition: { lat: 54.5193926,lng: 18.5353235, zoom: 14.95},
   cafes: [], //all cafes from request
   cafesRaw: [], //just objects
   cafesFiltered: [], //jsx elements

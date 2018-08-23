@@ -8,11 +8,6 @@ import $ from "jquery";
 
 class App extends React.PureComponent {
 
-  state = {
-    isMarkerShown: true,
-    startingPosition: { lat: 54.5193926,lng: 18.5353235, zoom: 14.95}
-  }
-
   componentDidMount() {
     this.initCafes();
   }
@@ -94,61 +89,18 @@ class App extends React.PureComponent {
     })
   }
 
-  clickItem = (event) => {
-    console.log("test");
-  }
-
-  onMarkerClick = (place, marker, e) => {
-    this.setState({
-      selectedPlace: place,
-      activeMarker: marker,
-      showingInfoWindow: true
-    })
-  }
-
-  onMapClicked = (props) => {
-    if (this.state.showingInfoWindow) {
-      this.setState({
-        showingInfoWindow: false,
-        activeMarker: null
-      })
-    }
-  };
-
-  updateListContent = (query, interestingPoints) => {
-    let filteredInterestingPoints = interestingPoints.filter((point) => {
-      if(point.name.toLowerCase()[0] === query.toLowerCase()[0])
-        return point
-    })
-
-    return filteredInterestingPoints;
-  }
-
   render() {
     return (
       <div className="app">
         <Filter
-          interestingPoints={this.state.interestingPoints}
-          startingPosition={this.state.startingPosition}
-          updateQuery={this.updateQuery}
-          query={this.state.query}
-          updateListContent={this.updateListContent}
-          clickItem={this.clickItem}
           localCafesRaw={this.localCafesRaw}
           localCafesFiltered={this.localCafesFiltered}
         />
         <Main
-          isMarkerShown = {this.state.isMarkerShown}
           googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJTF1H_9xKdjSbmBkFz96KPCRRPaJfgQ0&v=3.exp&libraries=geometry,drawing,places"
           loadingElement={<div style={{ height: `100%` }} />}
           containerElement={<div style={{ height: `400px` }} />}
           mapElement={<div style={{ height: `100%` }} />}
-          interestingPoints={this.state.interestingPoints}
-          startingPosition={this.state.startingPosition}
-          updateQuery={this.updateQuery}
-          query={this.state.query}
-          updateListContent={this.updateListContent}
-          onMapClicked={this.onMapClicked}
         />
       </div>
     );

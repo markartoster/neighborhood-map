@@ -28,7 +28,6 @@ class Main extends Component {
       <div role="Application">
       { this.props.GmError === false ? (
        <Map google={this.props.google}
-            onClick={this.props.onMapClicked}
             zoom={this.props.startingPosition.zoom}
             className={'map'}
             initialCenter={{
@@ -65,6 +64,7 @@ class Main extends Component {
 
 const mapStateToProps = state => {
   return {
+    startingPosition: state.startingPosition,
     showingInfoWindow: state.showingInfoWindow,
     activeMarker: state.activeMarker,
     selectedPlace: state.selectedPlace,
