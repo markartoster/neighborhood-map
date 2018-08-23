@@ -3,7 +3,7 @@ import Main from './Main.js'
 import Filter from './Filter.js'
 import { connect } from 'react-redux';
 import './App.css';
-import { initCafes } from './actions.js'
+import { initCafes, filterCafes } from './actions.js'
 import $ from "jquery";
 
 class App extends React.PureComponent {
@@ -29,6 +29,36 @@ class App extends React.PureComponent {
     this.initCafes();
   }
 
+  localCafesRaw = (query) => {
+    let cafesRaw = this.props.cafes.filter(
+      (cafe) => {
+        return cafe.name.toLowerCase().indexOf(query.toLowerCase()) !== -1;
+      }
+    );
+    return cafesRaw
+  }
+
+  localCafesFiltered = (query) => {
+    let cafesFiltered = this.props.cafes.filter(
+      (cafe) => {
+        return cafe.name.toLowerCase().indexOf(query.toLowerCase()) !== -1;
+      }
+    );
+
+    if(this.props.cafes instanceof Array) {
+      cafesFiltered = (
+        <ol className="filter-list">
+          {cafesFiltered.map((cafe) => (
+            <li key={cafe.name} lat={cafe.lat} lng={cafe.lng} aria-label={cafe.name} className="filter-list-item" tabIndex={0} role="button" aria-pressed="false">
+              {cafe.name}
+            </li>
+          ))}
+        </ol>
+      )
+    }
+    return cafesFiltered
+  }
+
   initCafes = () => {
     let clientID = 'REY4XZ5WQ1CNVSH52G2UJ3DYUVOW5A5PVHADYUGGIV5TLDWE'
     let clientSecret = 'LMR253UHYAPDUFJ0NV0TRFRHEQ2AEZG4A30BPCCQAWYIQDND'
@@ -47,6 +77,7 @@ class App extends React.PureComponent {
         })
 
         appInstance.props.initCafes(cafes);
+        appInstance.props.filterCafes(appInstance.localCafesFiltered(appInstance.props.query), appInstance.localCafesRaw(appInstance.props.query));
       },
       error: () => {
         //some error handling later
@@ -115,12 +146,16 @@ class App extends React.PureComponent {
 
 const mapStateToProps = state => {
   return {
+    cafes: state.cafes,
+    query: state.query,
+    cafesFiltered: state.cafesFiltered
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     initCafes: cafes => dispatch(initCafes(cafes)),
+    filterCafes: (cafesFiltered, cafesRaw) => dispatch(filterCafes(cafesFiltered, cafesRaw))
   }
 }
 
