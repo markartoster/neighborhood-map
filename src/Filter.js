@@ -20,7 +20,7 @@ class Filter extends Component {
             this.props.filterCafes(this.props.localCafesFiltered(event.target.value), this.props.localCafesRaw(event.target.value))
             }
           } />
-        { this.props.cafesFiltered }
+        {(this.props.FsError === false) ? this.props.cafesFiltered : (<h6 className="error-msg">Couldn't get response to query. Please try refreshing site</h6>)}
       </div>
     );
   }
@@ -30,7 +30,8 @@ const mapStateToProps = state => {
   return {
     cafes: state.cafes,
     query: state.query,
-    cafesFiltered: state.cafesFiltered
+    cafesFiltered: state.cafesFiltered,
+    FsError: state.FsError
   }
 }
 

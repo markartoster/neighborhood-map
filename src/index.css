@@ -71,4 +71,14 @@ body {
   font-size: .9rem;
 }
 
+/* line 63, /Users/karolrosinski/Documents/GOOGLE ND FE/neighborhood-map/src/scss/index.scss */
+.error-msg {
+  text-align: center;
+  font-family: 'Sunflower', sans-serif;
+  font-size: .9rem;
+  border-bottom: .1rem dotted #d0d0d0;
+  width: 80%;
+  margin: 2rem auto;
+}
+
 /*# sourceMappingURL=../index.map */

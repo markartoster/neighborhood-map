@@ -3,7 +3,7 @@ import Main from './Main.js'
 import Filter from './Filter.js'
 import { connect } from 'react-redux';
 import './App.css';
-import { initCafes, filterCafes } from './actions.js'
+import { initCafes, filterCafes, onFsError } from './actions.js'
 import $ from "jquery";
 
 class App extends React.PureComponent {
@@ -89,7 +89,7 @@ class App extends React.PureComponent {
         appInstance.props.filterCafes(appInstance.localCafesFiltered(appInstance.props.query), appInstance.localCafesRaw(appInstance.props.query));
       },
       error: () => {
-        //some error handling later
+        this.props.onFsError();
       }
     })
   }
@@ -167,7 +167,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     initCafes: cafes => dispatch(initCafes(cafes)),
-    filterCafes: (cafesFiltered, cafesRaw) => dispatch(filterCafes(cafesFiltered, cafesRaw))
+    filterCafes: (cafesFiltered, cafesRaw) => dispatch(filterCafes(cafesFiltered, cafesRaw)),
+    onFsError: () => dispatch(onFsError())
   }
 }
 

@@ -37,3 +37,17 @@ export function addMarkerRefs(markerRefs) {
     markerRefs
   }
 }
+
+export function onFsError() {
+  return {
+    type: "ON_FS_ERROR",
+    FsError: true
+  }
+}
+
+export function onGmError() {
+  return {
+    type: "ON_GM_ERROR",
+    GmError: true
+  }
+}

@@ -6,7 +6,9 @@ const initialState = {
   showingInfoWindow: false, //Infowindow
   activeMarker: {}, //Infowindow
   selectedPlace: {}, //Infowindow
-  markerRefs: [] //all refs to markers
+  markerRefs: [], //all refs to markers
+  FsError: false,
+  GmError: false
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -29,11 +31,19 @@ const rootReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         cafesFiltered: action.cafesFiltered,
         cafesRaw: action.cafesRaw
-   })
-   case "ADD_MARKERREFS":
-      return Object.assign({}, state, {
-        markerRefs: action.markerRefs
-   })
+     })
+     case "ADD_MARKERREFS":
+        return Object.assign({}, state, {
+          markerRefs: action.markerRefs
+     })
+     case "ON_FS_ERROR":
+        return Object.assign({}, state, {
+          FsError: action.FsError
+     })
+     case "ON_FS_ERROR":
+        return Object.assign({}, state, {
+          GmError: action.GmError
+     })
     default:
       return state
   }
