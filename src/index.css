@@ -57,14 +57,18 @@ body {
   }
 }
 
-/* line 49, /Users/karolrosinski/Documents/GOOGLE ND FE/neighborhood-map/src/scss/index.scss */
-.info-window {
-  border-bottom: .01rem solid #d0d0d0;
-}
-
 /* line 51, /Users/karolrosinski/Documents/GOOGLE ND FE/neighborhood-map/src/scss/index.scss */
 .info-window--text {
   font-family: 'Sunflower', sans-serif;
+  border-bottom: .01rem solid #d0d0d0;
+  margin-bottom: .3rem;
+  font-size: 1.2rem;
+}
+
+/* line 56, /Users/karolrosinski/Documents/GOOGLE ND FE/neighborhood-map/src/scss/index.scss */
+.info-window--text--extra {
+  font-family: 'Sunflower', sans-serif;
+  font-size: .9rem;
 }
 
 /*# sourceMappingURL=../index.map */
