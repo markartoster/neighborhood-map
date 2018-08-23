@@ -46,6 +46,18 @@ class App extends React.PureComponent {
                     }
                   }
                 })
+              }}
+
+              onKeyPress={(event) => {
+                if(event.key === 'Enter'){
+                  this.props.markerRefs.forEach((marker) => {
+                    if(marker){
+                      if(cafe.name === marker.props.title) {
+                        marker.props.onClick({name: marker.props.name}, marker.marker)
+                      }
+                    }
+                  })
+                }
               }}>
               {cafe.name}
             </li>
