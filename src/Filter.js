@@ -20,7 +20,8 @@ class Filter extends Component {
             this.props.filterCafes(this.props.localCafesFiltered(event.target.value), this.props.localCafesRaw(event.target.value))
             }
           } />
-        {(this.props.FsError === false) ? this.props.cafesFiltered : (<h6 className="error-msg">Couldn't get response to query. Please try refreshing site</h6>)}
+        {(this.props.FsError === false) ? this.props.cafesFiltered : (<h6 className="msg--error">Couldn't get response to query. Please try refreshing site</h6>)}
+        <p className="msg">Application uses Foursquare API!</p>
       </div>
     );
   }
