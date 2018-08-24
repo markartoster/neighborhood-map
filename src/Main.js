@@ -45,6 +45,10 @@ class Main extends Component {
                    category={cafe.category}
                    ref={(ref) => this.markerRefs[index] = ref}
                    position={{lat: cafe.lat, lng: cafe.lng}}
+                   icon={{
+                     url: 'http://maps.google.com/mapfiles/ms/icons/blue.png',
+                     size: new this.props.google.maps.Size(32,32)
+                   }}
                 />
          ))}
          <InfoWindow
